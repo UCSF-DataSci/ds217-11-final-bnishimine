@@ -1,0 +1,15 @@
+Key Findings
+
+Model Performance:
+The best performing model was the linear regression model (R^2 = .013)
+Neither model had a strong performance.
+Feature Importance:
+Total Rain was the most important feature at .0467.
+The other two features, Wet Bulb Temperature and Wind Speed 24h Rolling were of equal importance at .27 and .26 respectively.
+Temporal Patterns:
+Temperature had very visible seasonal fluctuations, and humidity had slightly less strong seasonal fluctuations.
+Data Quality:
+Dataset Cleaned: 196315 -> 120367 rows.
+Values from one station were removed due to entire columns of missing data.
+The remaining values and outliers were filled using ffill() (with 2 values in Solar Radiation being filled with bfill() due to being the last two values in the dataset.)
+Outliers were decided using IQR method

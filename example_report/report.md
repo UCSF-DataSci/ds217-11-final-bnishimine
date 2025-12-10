@@ -8,7 +8,7 @@ This analysis examines weather sensor data from Chicago beaches along Lake Michi
 
 ## Phase-by-Phase Findings
 
-### Phase 1-2: Exploration
+### Phase 1: Exploration
 
 Initial exploration revealed a dataset of **195,672 records** with 18 columns including temperature measurements (air and wet bulb), wind speed and direction, humidity, precipitation, barometric pressure, solar radiation, and sensor metadata. The data spans from April 25, 2015 to November 18, 2025, with measurements from three different weather stations: 63rd Street Weather Station, Foster Weather Station, and Oak Street Weather Station.
 
@@ -29,7 +29,7 @@ Initial visualizations showed:
 ![Figure 1: Initial Data Exploration](output/q1_visualizations.png)
 *Figure 1: Initial exploration visualizations showing distributions of air temperature, air temperature time series, wind speed distribution, and record counts by weather station location.*
 
-### Phase 3: Data Cleaning
+### Phase 2: Data Cleaning
 
 Data cleaning addressed missing values, outliers, and data type validation. Missing values in numeric columns were handled using forward-fill (appropriate for time series data) followed by median imputation for any remaining gaps. This approach preserved temporal continuity while ensuring complete datasets for modeling.
 
@@ -47,7 +47,7 @@ Data cleaning addressed missing values, outliers, and data type validation. Miss
 
 The cleaning process maintained the full dataset size while improving data quality. The large number of missing values in Wet Bulb Temperature (38.6%) suggests that this sensor may not be available at all stations or during certain periods, but forward-fill and median imputation ensured we could still use this feature in analysis.
 
-### Phase 4: Data Wrangling
+### Phase 3: Data Wrangling
 
 Datetime parsing and temporal feature extraction were critical for time series analysis. The `Measurement Timestamp` column was parsed from the format "MM/DD/YYYY HH:MM:SS AM/PM" and set as the DataFrame index, enabling time-based operations.
 

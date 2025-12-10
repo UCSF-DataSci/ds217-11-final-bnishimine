@@ -1,5 +1,7 @@
 Model Metrics:
-Linear Regression Train score: 0.036
 Linear Regression R^2 Score: 0.013
-Random Forest Train score: 0.952
+Linear Regression RMSE Score: 14.932
+Linear Regression MAE Score: 12.072
 Random Forest R^2 Score: -0.448
+Random Forest RMSE Score: 18.093
+Random Forest MAE Score: 14.148
