@@ -1,0 +1,9 @@
+Trend and Pattern Summary:
+Air Temperature shows a clear seasonal pattern with highs in summer and lows in winter.
+Although not as strong of a trend, Humidity seems to have slight seasonal variations as well, stabilizing in Winter while having highs and lows in the Summer.
+Wind Speed does not seem to follow the same seasonal patterns as Temperature and Humidity.
+All three variables overall seem to be stable in the long term.
+Correlation Analysis:
+The highest correlation seen is between Air Temperature and Wet Bulb Temperature, which is to be expected, as both are temperatures.
+Air Temperature shows a mild positive correlation with Total Rain, indicating that higher temperatures may be associated with increased rainfall in this dataset.
+Humidity has a moderate negative correlation with Temp Ratio, suggesting that as humidity increases, the difference of Wet Bulb to Air Temperature decreases.
