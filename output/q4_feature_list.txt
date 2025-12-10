@@ -1,0 +1,4 @@
+Temp Difference
+Temp Ratio
+Humidity Level
+Wind Speed 24h Rolling
