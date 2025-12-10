@@ -1,4 +1,1 @@
 Random Forest Feature Importances:
-Wet Bulb Temperature: 0.2721
-Wind Speed 24h Rolling: 0.2608
-Total Rain: 0.4670
