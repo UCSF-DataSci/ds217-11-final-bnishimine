@@ -105,3 +105,64 @@ Linear Regression and Random Forest were the two models chosen.
 - Total Rain: 46.7% Importance
 - Wet Bulb Temperature: 27.2% Importance
 - Wind Speed 24h Rolling: 26.1% Importance.
+
+![Figure 3: Model Performance](output/q8_final_visualizations.png)
+*Figure 3: Visualisations of actual versus predictors for linear regression, and feature importance for random forest.*
+
+
+## Phase 8: Results
+
+We were not able to create a successful model to predict humidity, with both linear regression and random forest having a sub par R^2. Possible shortcomings may be present in the way data was cleaned and in variable selection.
+
+
+## Visualizations
+
+
+![Figure 1: Initial Data Exploration](output/q1_visualizations.png)
+*Figure 1: Mapping Air and Wet Bulb temperatures to each other, and showing the distribution of Humidity*
+
+![Figure 2: Pattern Analysis](output/q5_patterns.png)
+*Figure 2: Advanced pattern analysis showing monthly temperature trends, how those match up with humidity and wind speeds, and a correlation heatma with extended variable inclusion*
+
+![Figure 3: Model Performance](output/q8_final_visualizations.png)
+*Figure 3: Visualisations of actual versus predictors for linear regression, and feature importance for random forest.*
+
+## Model Results
+
+**Model Selection**
+- Linear Regression is chosen as our better model
+- With only a R^2 of .013, it is still not a convincing model
+- The RMSE and MAE are 14.932 and 12.072, which are relatively high
+  
+## Time Series Patterns
+**Long-term Trends:**
+- Yearly patterns seem consistent over long periods of time
+- Indicates stable yearly trends
+- Specifically for the temperatures (Air Temperature and Wet Bulb Temperature) and Humidity
+
+## Limitations & Next Steps
+**Data Quality**
+- Missing an entire stations worth of data may have weakened our predictive capabilities
+- A lack of topic knowledge may have limited the effectiveness of our outlier removal
+
+**Model Weakness**
+- Neither of our models were effective at predicting the test dataset
+- Indicates that our models will also not be predictive of future weather events
+
+**Feature Engineering**
+- Temporal features were not utilized as effectively as possible
+- Especially due to the seasonality of temperature
+
+**Next Steps:**
+
+**Model Improvement**
+- Experimenting with further feature engineering on temporality may allow for rapid improvement of dataset.
+- External data sources with more related information may improve predictability
+
+**Feature Engineering**
+- Utilizing the existing temporal data 
+- Creating more interactions between certain datapoints (eg. wind speed and temperature)
+- Creating more categorical data
+
+## Conclusion
+The analysis from this dataset left a lot to be desired, failing to build an effective predictive model. Important takeaways were still derived from this dataset, including the seasonality of temperature and humidity. This dataset also gives some important considerations when it comes to cleaning data, especially when it comes to dealing with missing values, due to the large volume of missing data. This dataset is an important beginning point for predictive analyses.
