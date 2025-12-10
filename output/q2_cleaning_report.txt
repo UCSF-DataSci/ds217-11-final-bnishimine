@@ -1,0 +1,11 @@
+Rows Before Cleaning: 196315
+
+Missing Data Description: 7 Columns had missing data. 2 of those columns had random missing data, air temperature and barometric pressure. These were filled using ffill(). The remaining 5 columns, wet bulb temperature, rain intensity, total rain, precipitation type, and heading, had the exact same number of missing data, and all missing values were from Foster Station. Since there was no data from the station at all in these columns, removal was decided rather than attempting to impute data from other stations, as that may not be accurate.
+
+Outlier Handling: For outliers, the necessary expertise was lacking to set direct boundaries for each of the categories. However, a quick preliminary search allowed for us to determine reasonable minimum and maximums for each column. From this, we only performed outlier transformation on certain columns. We used IQR method to determine outliers. Outliers were set to NA and then filled using ffill(), assuming that outliers were data entry or measurement errors.
+
+Duplicates Removed: 0 
+
+Data Types Cleaned: Changed Measurement Timestamp and Measurement Timestamp Label to datetime64.
+
+Rows After Cleaning: 120367 
