@@ -1,0 +1,5 @@
+Model Metrics:
+Linear Regression Train score: 0.036
+Linear Regression R^2 Score: 0.013
+Random Forest Train score: 0.952
+Random Forest R^2 Score: -0.448
