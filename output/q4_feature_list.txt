@@ -1,4 +1,6 @@
 Temp Difference
 Temp Ratio
 Humidity Level
+Month
 Wind Speed 24h Rolling
+Total Rain 6h Rolling

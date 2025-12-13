@@ -1,11 +1,11 @@
 Key Findings
 
 Model Performance:
-The best performing model was the linear regression model (R^2 = .013)
-Neither model had a strong performance.
+The best performing model was the random forest model (R^2 = 0.757)
+Both models had a moderate performance. However, the random forest model slightly outperformed linear regression. An important note is that random forest performed above 0.7, whereas linear regression did not.
 Feature Importance:
-Total Rain was the most important feature at .0467.
-The other two features, Wet Bulb Temperature and Wind Speed 24h Rolling were of equal importance at .27 and .26 respectively.
+Temperature Difference was the most important feature at 0.767.
+The other two features, Total Rain and Month, were of lesser importance at 0.099 and 0.134 respectively.
 Temporal Patterns:
 Temperature had very visible seasonal fluctuations, and humidity had slightly less strong seasonal fluctuations.
 Data Quality:

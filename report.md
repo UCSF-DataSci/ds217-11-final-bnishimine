@@ -1,7 +1,7 @@
 # Chicago Weather Analysis
 
 ## Executive Summary
-This weather report analyzes data from Chicago Beaches along Lake Michigan. The dataset contained 196315 measurements from April 25, 2015 to December 3, 2025 across three different weather stations there. This project is a 9 section report that attempts to build a predictive model for humidity based off the data. The strongest model gleaned from the dataset was linear regression with an R^2 of only .013, indicating that further predictive models need to be built.
+This weather report analyzes data from Chicago Beaches along Lake Michigan. The dataset contained 196315 measurements from April 25, 2015 to December 3, 2025 across three different weather stations there. This project is a 9 section report that attempts to build a predictive model for humidity based off the data. We were able to create a Random Forest model with an R^2 of 0.757 and an RSME of 7.417%, demonstrating that with feature engineering, we are able to create an accurate predictive model. 
 
 ## Phase 1-2: Exploration
 
@@ -57,6 +57,7 @@ We created three derived variables and one rolling variable.
 
 **Rolling Window Features:**
 - Wind Speed Rolling 24h: 24-hour rolling mean of wind speed
+- Total Rain 6h Rolling: 6-hour rolling mean of Total Rain
 
 **Categorical Features:**
 - Humidity Level was a categorical feature for humidity, with <50 representing a low value, 50 >= & <=80 representing a middling value, and <80 representing a high value.
@@ -92,19 +93,21 @@ Linear Regression and Random Forest were the two models chosen.
 
 | Model | R² Score | RMSE | MAE |
 |-------|----------|------|-----|
-| Linear Regression | 0.013 | 14.932°C | 12.072°C |
-| Random Forest | -0.448 | 18.093°C | 14.148°C |
+| Linear Regression | 0.639 | 9.032% | 6.994% |
+| Random Forest | 0.757 | 7.417% | 5.046% |
 
 **Key Findings**
-- Neither model performed well
-- Linear Regression performed only slightly better than chance
-- Random Forest performed much worse than chance
+- Linear Regression performed well, achieving an R^2 of 0.639. However, this is still below the desired R^2 of 0.7.
+- Random Forest finished with an R^2 of 0.757, outperforming Linear Regression. 
+- The RMSE difference between Linear Regression and Random Forest is only around ~1.5%
 
 **Feature Importance**
 - Random Forest
-- Total Rain: 46.7% Importance
-- Wet Bulb Temperature: 27.2% Importance
-- Wind Speed 24h Rolling: 26.1% Importance.
+- Temperature Difference: 76.7% Importance
+- Total Rain: 9.9% Importance
+- Month: 13.4% Importance.
+
+Temperature Difference being an important indicator to humidity lines up, as Wet Bulb Temperatures rely upon water evaporation. The Month was a more important predictor than Total Rain, indicating that there are potentially other weather features with seasonal cycles that have a higher impact than the rain on humidity.
 
 ![Figure 3: Model Performance](output/q8_final_visualizations.png)
 *Figure 3: Visualisations of actual versus predictors for linear regression, and feature importance for random forest.*
@@ -112,7 +115,13 @@ Linear Regression and Random Forest were the two models chosen.
 
 ## Phase 8: Results
 
-We were not able to create a successful model to predict humidity, with both linear regression and random forest having a sub par R^2. Possible shortcomings may be present in the way data was cleaned and in variable selection.
+Our best performing model, Random Forest, predicts humidity within 7.417% which is relatively accurate.
+
+**Summary of Key Findings:**
+1. **Model Performance:** Our Random Forest model has an R^2 of 0.757, meaning that it is able to explain 75.5% of variance in humidity with these three features.
+2. **Feature Importance:** Temperature Difference is the biggest predictor, indicating that the difference between air temperature and the wet bulb temperature which is primarily due to evaporation, is a strong predictor of humidity.
+3. **Data Quality:** Our data cleaning process did not try to infer data points from which we had no reference, and only tried to fill points that we were sure would be reliable due to patterns and temporality.
+4. **Data Leakage Avoidance:** We made sure to avoid any features that were created from the target variable in order to keep the model generalizable. 
 
 
 ## Visualizations
@@ -129,10 +138,23 @@ We were not able to create a successful model to predict humidity, with both lin
 
 ## Model Results
 
+Both of our models, Linear Regression and Random Forest, performed relatively well. Random Forest outperformed Linear Regression in all three metrics of R^2, RMSE, and MAE.
+
+**Performance Interpretation:**
+- **R² Score:** Random Forest explains 75.7% of variation in humidity.
+- **RMSE (Root Mean Squared Error):** Average prediction error in original units. The RMSE for our Random Forest model was 7.417%, meaning that the humidity % was usually within 7.417% prediction.
+- **MAE (Mean Absolute Error):** Average absolute prediction error. The MAE for our Random Forest model was 5.046%, which is decent accuracy.
+
 **Model Selection**
-- Linear Regression is chosen as our better model
-- With only a R^2 of .013, it is still not a convincing model
-- The RMSE and MAE are 14.932 and 12.072, which are relatively high
+- Random FOrest is chosen as our superior model in this case.
+- It had a higher R^2 than Linear Regression (0.757 > 0.639)
+- The RMSE and MAE were both lower than that of Linear Regression (7.417 < 9.032), (5.046 < 6.994)
+
+**Feature Importance Insights:**
+The feature importance analysis reveals that:
+- Temperature Difference between the air and wet bulb temperatures is the strongest predictor of  humidity
+- The temperature difference is primarily caused by evaporation, suggesting that humidity is strongly related to water evaporation.
+- The Month was a stronger predictor than Total Rain, indicating that there are other seasonal weather features more important than the rainfall.
   
 ## Time Series Patterns
 **Long-term Trends:**
@@ -143,15 +165,19 @@ We were not able to create a successful model to predict humidity, with both lin
 ## Limitations & Next Steps
 **Data Quality**
 - Missing an entire stations worth of data may have weakened our predictive capabilities
-- A lack of topic knowledge may have limited the effectiveness of our outlier removal
+- Whether this is more damaging than improperly filling missing data is unknown
+- A lack of topic knowledge may have limited the effectiveness of our outlier removal.
+- Only 3 weather stations data gathered - Which was dropped down to 2 during our cleaning process
 
 **Model Weakness**
-- Neither of our models were effective at predicting the test dataset
-- Indicates that our models will also not be predictive of future weather events
+- Linear Regression did not quite reach the 0.7 R^2 threshold.
+- Only 3 features were used in our Random Forest Model, which may have limited our predictive power.
+- A variablility in prediction of 7.417% RMSE may not be high enough in all scenarios. 
 
 **Feature Engineering**
-- Temporal features were not utilized as effectively as possible
-- Especially due to the seasonality of temperature
+- Higher utilization of temporal features could be implemented
+- Using hour windows with higher versus lower water evaporation (eg. noon versus dawn) could be implemented.
+- Features involving both rainfall and temperature (test water evaporation)
 
 **Next Steps:**
 
@@ -160,9 +186,16 @@ We were not able to create a successful model to predict humidity, with both lin
 - External data sources with more related information may improve predictability
 
 **Feature Engineering**
-- Utilizing the existing temporal data 
-- Creating more interactions between certain datapoints (eg. wind speed and temperature)
-- Creating more categorical data
+- Look more closely at previous features we have discovered affect humidity, and attempt to build off that
+- Utilize daily cycles of water evaporation
+
+**Analysis Extension:**
+- Extend analysis beyond single target variables
+- Further implement temporal features in models
+
+**Validation**
+- Validate upon other time period datasets
+- Further review features in feature importance
 
 ## Conclusion
-The analysis from this dataset left a lot to be desired, failing to build an effective predictive model. Important takeaways were still derived from this dataset, including the seasonality of temperature and humidity. This dataset also gives some important considerations when it comes to cleaning data, especially when it comes to dealing with missing values, due to the large volume of missing data. This dataset is an important beginning point for predictive analyses.
+The analysis from this project sucessfully created two models for humidity prediction. Of the two models, our Random Forest model achieved more predictive results with an R^2 of 0.757 and and RSME of 7.417%. In this project, we proved the importance of feature engineering in our temperature difference variable, created from the difference between air and wet bulb temperatures. Through pattern analysis, we disovered a seasonal trend of humidity, and this proved to be somewhat important, with month as the second most important feature in our Random Forest model. We discovered that Random Forest outperformed Linear Regression as a predictor for humidity in this model. We made sure to avoid any data leakage by avoiding using any features created from the outcome target, and created a generalizable model.

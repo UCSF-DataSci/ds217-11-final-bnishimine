@@ -1,4 +1,4 @@
-Train Test Split: 80/20
+Train Test Split: 20/80
 Training size set: 96,293 records
 Testing size set: 24,074 records
 Training Date Range: 2015-04-25 09:00:00 to 2022-12-07 08:00:00

@@ -1,7 +1,7 @@
 Model Metrics:
-Linear Regression R^2 Score: 0.013
-Linear Regression RMSE Score: 14.932
-Linear Regression MAE Score: 12.072
-Random Forest R^2 Score: -0.448
-Random Forest RMSE Score: 18.093
-Random Forest MAE Score: 14.148
+Linear Regression R^2 Score: 0.639
+Linear Regression RMSE Score: 9.032
+Linear Regression MAE Score: 6.994
+Random Forest R^2 Score: 0.757
+Random Forest RMSE Score: 7.417
+Random Forest MAE Score: 5.046

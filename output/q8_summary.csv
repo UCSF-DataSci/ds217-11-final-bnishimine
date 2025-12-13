@@ -1,4 +1,4 @@
 Metric,Linear Regression,Random Forest
-R^2,0.013,-0.448
-RMSE,14.932,18.093
-MAE,12.072,14.148
+R^2,0.639,0.757
+RMSE,9.032,7.417
+MAE,6.994,5.046
