@@ -67,7 +67,7 @@ We created three derived variables and one rolling variable.
 **Temporal Trends:**
 - Air Temperature: Clear seasonal trends, with it being higher during the summer and lower during the winter.
 - Humidity: Some seasonal trend, not quite as strong as temperature trends.
-- 
+  
 **Correlations:**
 - Air Temperature shows a mild positive correlation with Total Rain, indicating that higher temperatures may be associated with increased rainfall in this dataset.
 - Humidity has a moderate negative correlation with Temp Ratio, suggesting that as humidity increases, the difference of Wet Bulb to Air Temperature decreases.
@@ -146,9 +146,9 @@ Both of our models, Linear Regression and Random Forest, performed relatively we
 - **MAE (Mean Absolute Error):** Average absolute prediction error. The MAE for our Random Forest model was 5.046%, which is decent accuracy.
 
 **Model Selection**
-- Random FOrest is chosen as our superior model in this case.
+- Random Forest is chosen as our superior model in this case.
 - It had a higher R^2 than Linear Regression (0.757 > 0.639)
-- The RMSE and MAE were both lower than that of Linear Regression (7.417 < 9.032), (5.046 < 6.994)
+- The RMSE and MAE were both lower than that of Linear Regression (7.417% < 9.032%), (5.046% < 6.994%)
 
 **Feature Importance Insights:**
 The feature importance analysis reveals that:
